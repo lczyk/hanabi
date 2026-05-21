@@ -13,13 +13,14 @@ ruby hanabi.rb <file.hnb>
 examples in the repo:
 
 - `hello.hnb` -- prints `Hello, world!`
-- `fib.hnb` -- prints fib(0)..fib(20). rebuilt as bounded loop (original on wiki ran forever)
-- `prime.hnb` -- prompts ` >`, reads n, prints `1` if prime else `0`. fails on n=2 (div-by-zero in trial-division edge case from original program)
+- `fib.hnb` -- prints fib(0)..fib(20). bounded loop variant (original on wiki ran forever)
+- `prime.hnb` -- prompts ` >`, reads n, prints `1` if prime else `0`. handles n<=2 via explicit guard
+- `fizzbuzz.hnb` -- prints fizzbuzz 1..N
 
 helper scripts:
 
-- `dump.rb <file.hnb>` -- dump opcode table for a program
-- `build_fib.rb` -- regenerate bounded `fib.hnb` grid from op list
+- `dump.rb <file.hnb>` -- print opcode table for a program
+- `optim.rb [--iter N] [--stagnation N] [--bt-limit N] [--seed N] [--verbose] <file.hnb>` -- repack dots into a smaller (h*w) grid; writes result to stdout, progress to stderr. handles SIGTERM cleanly
 
 ## encoding
 
